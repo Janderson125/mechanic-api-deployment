@@ -4,5 +4,4 @@ Flask-Marshmallow==0.14.0
 marshmallow==3.19.0
 marshmallow-sqlalchemy==0.28.1
 gunicorn==23.0.0
-python-dotenv==1.1.1
 pymysql==1.0.3

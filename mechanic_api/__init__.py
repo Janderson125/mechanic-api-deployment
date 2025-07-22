@@ -10,15 +10,10 @@ def create_app(config_object=None):
 
     db.init_app(app)
 
-    # Use full package path starting from mechanic_api
-    from mechanic_api.app.routes.mechanics import mechanics_bp
-    from mechanic_api.app.routes.tickets import tickets_bp
+    from app.routes.mechanics import mechanics_bp
+    from app.routes.tickets import tickets_bp
 
     app.register_blueprint(mechanics_bp, url_prefix="/mechanics")
     app.register_blueprint(tickets_bp, url_prefix="/tickets")
-
-    @app.route("/")
-    def index():
-        return "API is running"
 
     return app
