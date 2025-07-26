@@ -1,0 +1,70 @@
+openapi: 3.0.0
+info:
+  title: Mechanic API
+  description: API for managing mechanics and tickets.
+  version: 1.0.0
+paths:
+  /mechanics:
+    get:
+      summary: Get all mechanics
+      responses:
+        '200':
+          description: Success
+    post:
+      summary: Create a new mechanic
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mechanic'
+      responses:
+        '201':
+          description: Created
+  /mechanics/{id}:
+    get:
+      summary: Get a mechanic by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Success
+  /tickets:
+    get:
+      summary: Get all tickets
+      responses:
+        '200':
+          description: Success
+    post:
+      summary: Create a new ticket
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Ticket'
+      responses:
+        '201':
+          description: Created
+components:
+  schemas:
+    Mechanic:
+      type: object
+      properties:
+        name:
+          type: string
+        specialty:
+          type: string
+    Ticket:
+      type: object
+      properties:
+        description:
+          type: string
+        is_complete:
+          type: boolean
+        mechanic_id:
+          type: integer
