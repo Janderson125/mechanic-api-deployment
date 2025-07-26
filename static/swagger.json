@@ -1,0 +1,91 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Mechanic API",
+    "description": "API for managing mechanics"
+  },
+  "host": "mechanic-api.onrender.com",
+  "basePath": "/",
+  "schemes": ["https"],
+  "paths": {
+    "/mechanics": {
+      "get": {
+        "summary": "Get all mechanics",
+        "responses": {
+          "200": {
+            "description": "A list of mechanics"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a new mechanic",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "mechanic",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "specialty": { "type": "string" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Mechanic added"
+          }
+        }
+      }
+    },
+    "/mechanics/{id}": {
+      "put": {
+        "summary": "Update a mechanic",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "mechanic",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "specialty": { "type": "string" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Mechanic updated"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a mechanic",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Mechanic deleted"
+          }
+        }
+      }
+    }
+  }
+}
