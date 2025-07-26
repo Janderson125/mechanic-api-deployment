@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-# flask_app.py
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from config import ProductionConfig
-from routes.mechanic_routes import mechanic_bp
-import os
-
-app = Flask(__name__)
-app.config.from_object(ProductionConfig)
-
-db = SQLAlchemy(app)
-
-app.register_blueprint(mechanic_bp, url_prefix="/mechanics")
-=======
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
@@ -114,4 +99,3 @@ def delete_user(id):
 
 if __name__ == "__main__":
     app.run(debug=True)
->>>>>>> 17b5f132d4177f1e7880cc3fdf6ba5a8bef6abcc
